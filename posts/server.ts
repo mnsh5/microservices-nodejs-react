@@ -1,5 +1,5 @@
 import express, { Request, Response } from "npm:express@^4.17";
-import { v4 } from 'https://deno.land/std/uuid/mod.ts';
+import { randomBytes } from "https://deno.land/std@0.91.0/node/crypto.ts";
 
 const app = express();
 const PORT = 5000;
@@ -17,7 +17,7 @@ app.get("/posts", (_req: Request, res: Response) => {
 });
 
 app.post("/posts", (req: Request, res: Response) => {
-  const id = v4.generate();
+  const id = randomBytes(4).toString("hex")
   const { title } = req.body;
   posts[id] = {
     id,
