@@ -9,7 +9,6 @@ app.get("/", (_req: Request, res: Response) => {
   res.send("Welcome to the Post API!");
 });
 
-
 app.listen(PORT, () => {
   console.log(`listening on http://localhost:${PORT}/`);
 });
