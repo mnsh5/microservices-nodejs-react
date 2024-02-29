@@ -1,10 +1,12 @@
 import express, { Request, Response } from "npm:express@^4.17";
+import * as cors from "https://deno.land/x/cors@v1.2.2/mod.ts";
 import { randomBytes } from "https://deno.land/std@0.91.0/node/crypto.ts";
 
 const app = express();
 const PORT = 5001;
 
 app.use(express.json());
+app.use(cors())
 
 const commentsByPostId = {};
 

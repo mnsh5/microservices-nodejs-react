@@ -1,16 +1,21 @@
 import axios from "axios";
-import { useState } from "react";
+import React, { useState } from "react";
+
+
 
 export const PostCreate = () => {
   const [title, setTitle] = useState("");
 
-  const onSubmit = async (e: React.FormEvent) => {
+
+  const onSubmit = async (e: React.FormEvent<Element>) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/posts", {
+    await axios.post("http://localhost:4000/posts", {
       title,
     });
     setTitle("");
   };
+
+  console.log(title);
 
   return (
     <>
@@ -30,6 +35,7 @@ export const PostCreate = () => {
       <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2">
         Submit
       </button>
+      <p>{title}</p>
     </>
   );
 };

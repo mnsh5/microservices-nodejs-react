@@ -1,12 +1,14 @@
-import express, { Request, Response } from "npm:express@^4.17";
-import { randomBytes } from "https://deno.land/std@0.91.0/node/crypto.ts";
+import express, { Request, Response } from "express";
+import cors from "cors"
+import { randomBytes } from "crypto";
 
 const app = express();
-const PORT = 5000;
+const PORT = 4000;
 
 app.use(express.json());
+app.use(cors());
 
-const posts = {};
+const posts: { [key: string]: any } = {};
 
 app.get("/", (_req: Request, res: Response) => {
   res.send("Welcome to the Post API!");
