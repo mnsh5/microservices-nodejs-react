@@ -4,7 +4,7 @@ import React, { useState } from "react";
 export const PostCreate = () => {
   const [title, setTitle] = useState("");
 
-  const handleSubmit  = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     console.log("entro")
     e.preventDefault();
     try {
@@ -21,7 +21,7 @@ export const PostCreate = () => {
   return (
     <>
       <div className="mt-4">
-        <form className="" onSubmit={handleSubmit }>
+        <form className="" onSubmit={handleSubmit}>
           <label className="block" htmlFor='title'>
             <span className="text-gray-700">Title</span>
             <input
@@ -38,7 +38,6 @@ export const PostCreate = () => {
           </button>
         </form>
       </div>
-      {/* {title && <p>{title}</p>} */}
     </>
   );
 };
