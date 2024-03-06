@@ -25,7 +25,7 @@ export const PostCreate = () => {
           <label className="block" htmlFor="title">
             <span className="text-gray-700">Title</span>
             <input
-              className="form-input mt-1 block w-1/2 border-current outline-pink-500"
+              className="form-input mt-1 block w-1/2 border-current outline-pink-500 rounded-lg border border-pink-500"
               placeholder="Post"
               type="text"
               id="title"
