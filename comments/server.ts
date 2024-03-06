@@ -1,14 +1,17 @@
-import express, { Request, Response } from "npm:express@^4.17";
-import * as cors from "https://deno.land/x/cors@v1.2.2/mod.ts";
-import { randomBytes } from "https://deno.land/std@0.91.0/node/crypto.ts";
+import express, { Request, Response } from "express";
+import cors from "cors"
+import { randomBytes } from "crypto";
+
+import { CommentsByPostId } from "./interfaces/global";
 
 const app = express();
-const PORT = 5001;
+const PORT = 4001;
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
-const commentsByPostId = {};
+
+const commentsByPostId: CommentsByPostId = {};
 
 app.get("/", (_req: Request, res: Response) => {
   res.send("Welcome to the Comments API!");
