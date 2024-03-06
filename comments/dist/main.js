@@ -6,10 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const crypto_1 = require("crypto");
+const middleware_1 = require("./middleware");
 const app = (0, express_1.default)();
 const PORT = 4001;
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
+app.use(middleware_1.allowAPI);
 const commentsByPostId = {};
 app.get("/", (_req, res) => {
     res.send("Welcome to the Comments API!");

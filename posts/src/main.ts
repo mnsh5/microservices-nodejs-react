@@ -2,6 +2,8 @@ import express, { Request, Response } from "express";
 import cors from "cors"
 import { randomBytes } from "crypto";
 
+// import { allowAPI } from "./middleware";
+
 const app = express();
 const PORT = 4000;
 
