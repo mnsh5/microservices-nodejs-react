@@ -19,7 +19,7 @@ export const CommentCreate: React.FC<Props> = ({ postId }) => {
       console.error("Error al enviar la solicitud:", error);
     }
   };
-
+  
   useEffect(() => {
     if (successMessage) {
       const timer = setTimeout(() => {
