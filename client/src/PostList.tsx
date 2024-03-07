@@ -22,25 +22,26 @@ export const PostList = () => {
     handlePost();
   }, [posts]);
 
-  const renderedPosts = Object.values(posts).map(({id, title}) => {
+  const renderedPosts = Object.values(posts).map(({ id, title }) => {
     return (
       <div
-        className="container mx-auto bg-white shadow-md rounded-lg w-1/3 p-4 mb-4 border border-pink-500"
+        className="flex-shrink-0 container mx-auto bg-white shadow-md rounded-lg w-1/3 p-4 mb-4 border border-pink-500"
         style={{ width: "30%", marginBottom: "20px" }}
         key={id}
       >
         <div className="border-b border-pink-500 mb-4 pb-2">
           <h3 className="text-xl font-bold">{title}</h3>
           <CommentCreate postId={id} />
-          <CommentList postId={id} />        
+          <CommentList postId={id} />
         </div>
       </div>
     );
   });
-
+  
   return (
-    <div className="d-flex flex-row flex-wrap justify-content-between">
+    <div className="flex flex-wrap justify-between">
       {renderedPosts}
     </div>
   );
+  
 };
