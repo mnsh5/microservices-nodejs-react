@@ -1,11 +1,11 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Props } from "./global";
 
 export const CommentCreate: React.FC<Props> = ({ postId }) => {
   const [content, setContent] = useState<string>("");
-  
+  const [successMessage, setSuccessMessage] = useState<string>("");
 
   const handleSubmit = async  (e: React.FormEvent) => {
     e.preventDefault(); 
@@ -14,10 +14,20 @@ export const CommentCreate: React.FC<Props> = ({ postId }) => {
         content,
       });
       setContent("");
+      setSuccessMessage("Comment added successfully!");
     } catch (error) {
       console.error("Error al enviar la solicitud:", error);
     }
   };
+
+  useEffect(() => {
+    if (successMessage) {
+      const timer = setTimeout(() => {
+        setSuccessMessage("");
+      }, 3000); // Tiempo en milisegundos para que el mensaje desaparezca (3 segundos)
+      return () => clearTimeout(timer); // Limpia el temporizador al desmontar el componente
+    }
+  }, [successMessage]);
 
   return (
     <div className="container mx-auto p-4">
@@ -45,6 +55,12 @@ export const CommentCreate: React.FC<Props> = ({ postId }) => {
           Submit
         </button>
       </form>
+      {successMessage && (
+        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 mt-4 rounded-md" role="alert">
+          <strong className="font-bold">Success!</strong>
+          <span className="block sm:inline"> {successMessage}</span>
+        </div>
+      )}
     </div>
   );
 };
