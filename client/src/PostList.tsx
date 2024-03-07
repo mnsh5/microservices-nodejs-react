@@ -1,5 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import axios from "axios";
+
+import { CommentCreate } from "./CommentCreate";
+import { CommentList } from "./CommentList";
 
 export const PostList = () => {
   const [posts, setPosts] = useState<{
@@ -28,8 +31,8 @@ export const PostList = () => {
       >
         <div className="border-b border-pink-500 mb-4 pb-2">
           <h3 className="text-xl font-bold">{title}</h3>
-          {/* <CommentList postId={post.id} />
-          <CommentCreate postId={post.id} /> */}
+          <CommentCreate postId={id} />
+          <CommentList postId={id} />        
         </div>
       </div>
     );
